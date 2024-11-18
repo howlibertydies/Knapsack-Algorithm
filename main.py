@@ -5,12 +5,25 @@ def solve(products, maxWeight):
     currentValue = 0
     statementCount = 0
     productCount = []
+    location = -1
     
-    # Algorithm starts here
+    for i in products: 
+        productAmmount = 0
+        while (currentWeight+i[2]) <= maxWeight:
+            currentWeight += i[2]
+            currentValue += i[1]
+            statementCount += 1
 
-     
-    # Algorithm ends here
-    
+            productAmmount += 1
+           
+            if (maxWeight == currentWeight):
+                break
+        
+        else:
+            statementCount += 1
+
+        productCount.insert(i[0], productAmmount)
+                      
     print("Final value $" + str(currentValue) + ", Final weight " + str(currentWeight) +\
           ", Statement count: " + str(statementCount))
     
